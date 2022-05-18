@@ -1,5 +1,16 @@
 let tl = gsap.timeline()
-tl.fromTo('.logo', {
+tl.fromTo('.info-section h1', {
+        x: 0,
+        y: 100,
+        opacity: 0,
+    }, {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1.3
+    })
+    .addLabel('h1Show')
+    .fromTo('.logo', {
         x: -200,
         opacity: 0,
     }, {
@@ -23,7 +34,7 @@ tl.fromTo('.logo', {
             height: 0,
 
         }, {
-            height: 600,
+            height: 400,
             duration: 1.4,
             ease: 'power2.inOut'
 
@@ -35,7 +46,7 @@ tl.fromTo('.logo', {
             height: 0,
 
         }, {
-            height: 600,
+            height: 400,
             duration: 1.4,
             ease: 'power2.inOut'
 
@@ -71,10 +82,11 @@ tl.fromTo('.logo', {
 
     )
     .fromTo('.shape3', {
-        y: 300,
+        x: 50,
+        y: 350,
 
     }, {
-        y: 265,
+        y: 385,
         repeat: -1,
         duration: 1.5,
         ease: 'sine.inOut',
@@ -95,12 +107,57 @@ tl.fromTo('.logo', {
 
     )
     .fromTo('.shape2', {
-        y: -300,
+        x: 550,
+        y: -100,
 
     }, {
-        y: -335,
+        y: -135,
         repeat: -1,
         duration: 1.5,
         ease: 'sine.inOut',
         yoyo: true,
-    });
+    })
+    .fromTo('.shape2', {
+        x: 550,
+        y: -100,
+
+    }, {
+        y: -135,
+        repeat: -1,
+        duration: 1.5,
+        ease: 'sine.inOut',
+        yoyo: true,
+    })
+    .fromTo('.info-section h4', {
+            x: 50,
+            opacity: 0
+
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 1.3
+        },
+        'h1Show'
+    )
+    .fromTo('.call-actions', {
+            x: 50,
+            opacity: 0
+
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 1.3
+        },
+        'h1Show+=1'
+    );
+// .fromTo('html', {
+//     scale: 0.9,
+//     background: "linear-gradient(to right top, #ffffff, #7b21fa, #ffffff, #ffffff, #ffffff)",
+//     opacity: 0
+// }, {
+//     scale: 1,
+//     background: "linear-gradient(to right top, #8e27ff, #7b21fa, #651bf5, #4b16f0, #2512eb)",
+//     opacity: 1,
+//     duration: 3,
+//     ease: "sine.out"
+// });
