@@ -27,6 +27,11 @@ header .logo {
     font-weight: 700;
 }
 
+header .logo a {
+    text-decoration: none;
+    color: white;
+}
+
 header .menu ul {
     display: flex;
 }
@@ -60,9 +65,10 @@ header .menu li a {
     margin: 0 auto;
 }
 
-#home {
-    /* overflow: hidden; */
-}
+
+/* #home {
+    overflow: hidden;
+} */
 
 #home .content-area {
     height: 100vh;

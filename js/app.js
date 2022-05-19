@@ -1,155 +1,186 @@
-let tl = gsap.timeline()
-tl.fromTo('.info-section h1', {
-        x: 0,
-        y: 100,
-        opacity: 0,
-    }, {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 1.3
-    })
-    .addLabel('h1Show')
-    .fromTo('.logo', {
-        x: -200,
-        opacity: 0,
-    }, {
-        x: 0,
-        opacity: 1,
-        delay: .5,
-        duration: 1.3
-    })
-    .fromTo('.menu', {
-            x: 200,
+const pageLoad = () => {
+    let tl = gsap.timeline()
+    tl.fromTo('.info-section h1', {
+            x: 0,
+            y: 100,
+            opacity: 0,
+        }, {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            duration: 1.3
+        })
+        .addLabel('h1Show')
+        .fromTo('.logo', {
+            x: -200,
             opacity: 0,
         }, {
             x: 0,
             opacity: 1,
             delay: .5,
             duration: 1.3
-        },
-        ">-1.8"
-    )
-    .fromTo('.girl', {
-            height: 0,
+        })
+        .fromTo('.menu', {
+                x: 200,
+                opacity: 0,
+            }, {
+                x: 0,
+                opacity: 1,
+                delay: .5,
+                duration: 1.3
+            },
+            ">-1.8"
+        )
+        .fromTo('.girl', {
+                height: 0,
 
-        }, {
-            height: 400,
-            duration: 1.4,
-            ease: 'power2.inOut'
+            }, {
+                height: 400,
+                duration: 1.4,
+                ease: 'power2.inOut'
 
-        },
-        ">-.5"
+            },
+            ">-.5"
 
-    )
-    .fromTo('.boy', {
-            height: 0,
+        )
+        .fromTo('.boy', {
+                height: 0,
 
-        }, {
-            height: 400,
-            duration: 1.4,
-            ease: 'power2.inOut'
+            }, {
+                height: 400,
+                duration: 1.4,
+                ease: 'power2.inOut'
 
-        },
-        ">-1"
+            },
+            ">-1"
 
-    )
-    .fromTo('.shape1', {
-            scale: 0,
-            opacity: 0
+        )
+        .fromTo('.shape1', {
+                scale: 0,
+                opacity: 0
 
-        }, {
-            scale: 1,
-            opacity: 1,
-            ease: 'power2.inOut'
+            }, {
+                scale: 1,
+                opacity: 1,
+                ease: 'power2.inOut'
 
-        },
-        ">-1"
+            },
+            ">-1"
 
-    )
-    .fromTo('.shape3', {
+        )
+        .fromTo('.shape3', {
 
-            opacity: 0
+                opacity: 0
 
-        }, {
+            }, {
 
-            opacity: 0.6,
-            ease: 'power2.inOut',
-            duration: 0.5,
+                opacity: 0.6,
+                ease: 'power2.inOut',
+                duration: 0.5,
 
-        },
-        ">-.2"
+            },
+            ">-.2"
 
-    )
-    .fromTo('.shape3', {
-        x: 50,
-        y: 350,
-
-    }, {
-        y: 385,
-        repeat: -1,
-        duration: 1.5,
-        ease: 'sine.inOut',
-        yoyo: true,
-    })
-    .fromTo('.shape2', {
-
-            opacity: 0
-
-        }, {
-
-            opacity: 0.5,
-            ease: 'power2.inOut',
-            duration: 0.5,
-
-        },
-        ">-2"
-
-    )
-    .fromTo('.shape2', {
-        x: 550,
-        y: -100,
-
-    }, {
-        y: -135,
-        repeat: -1,
-        duration: 1.5,
-        ease: 'sine.inOut',
-        yoyo: true,
-    })
-    .fromTo('.shape2', {
-        x: 550,
-        y: -100,
-
-    }, {
-        y: -135,
-        repeat: -1,
-        duration: 1.5,
-        ease: 'sine.inOut',
-        yoyo: true,
-    })
-    .fromTo('.info-section h4', {
+        )
+        .fromTo('.shape3', {
             x: 50,
-            opacity: 0
+            y: 350,
 
         }, {
-            opacity: 1,
-            x: 0,
-            duration: 1.3
-        },
-        'h1Show'
-    )
-    .fromTo('.call-actions', {
-            x: 50,
-            opacity: 0
+            y: 385,
+            repeat: -1,
+            duration: 1.5,
+            ease: 'sine.inOut',
+            yoyo: true,
+        })
+        .fromTo('.shape2', {
+
+                opacity: 0
+
+            }, {
+
+                opacity: 0.5,
+                ease: 'power2.inOut',
+                duration: 0.5,
+
+            },
+            ">-2"
+
+        )
+        .fromTo('.shape2', {
+            x: 550,
+            y: -100,
 
         }, {
-            opacity: 1,
-            x: 0,
-            duration: 1.3
+            y: -135,
+            repeat: -1,
+            duration: 1.5,
+            ease: 'sine.inOut',
+            yoyo: true,
+        })
+        .fromTo('.shape2', {
+            x: 550,
+            y: -100,
+
+        }, {
+            y: -135,
+            repeat: -1,
+            duration: 1.5,
+            ease: 'sine.inOut',
+            yoyo: true,
+        })
+        .fromTo('.info-section h4', {
+                x: 50,
+                opacity: 0
+
+            }, {
+                opacity: 1,
+                x: 0,
+                duration: 1.3
+            },
+            'h1Show'
+        )
+        .fromTo('.call-actions', {
+                x: 50,
+                opacity: 0
+
+            }, {
+                opacity: 1,
+                x: 0,
+                duration: 1.3
+            },
+            'h1Show+=1'
+        );
+}
+
+pageLoad();
+
+const delay = (n) => {
+    return new Promise((done) => {
+        setTimeout(() => {
+            done();
+        }, n)
+    })
+}
+
+barba.init({
+
+    sync: true,
+    transitions: [{
+        name: 'page-wipe',
+        async leave(data) {
+            const done = this.async();
+            console.log('leaving page animation');
+            await delay(2000);
+            done();
         },
-        'h1Show+=1'
-    );
+        async enter(data) {
+            console.log('entering page animation');
+        }
+    }]
+
+})
+
 // .fromTo('html', {
 //     scale: 0.9,
 //     background: "linear-gradient(to right top, #ffffff, #7b21fa, #ffffff, #ffffff, #ffffff)",
