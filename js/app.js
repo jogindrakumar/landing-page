@@ -153,13 +153,31 @@ const pageLoad = () => {
         );
 }
 
-pageLoad();
+
 
 const delay = (n) => {
     return new Promise((done) => {
         setTimeout(() => {
             done();
         }, n)
+    })
+}
+const loadingLeave = () => {
+    let timeline = gsap.timeline();
+    timeline.fromTo('.loading-bg', {
+        y: "100%"
+    }, {
+        y: 0,
+
+    })
+}
+const loadingEnter = () => {
+    let timeline = gsap.timeline();
+    timeline.fromTo('.loading-bg', {
+        y: 0
+    }, {
+        y: "100%",
+        duration: 2
     })
 }
 
@@ -171,11 +189,21 @@ barba.init({
         async leave(data) {
             const done = this.async();
             console.log('leaving page animation');
+            loadingLeave();
             await delay(2000);
             done();
         },
         async enter(data) {
+
+            loadingEnter();
+            pageLoad();
             console.log('entering page animation');
+
+
+        },
+        async once(data) {
+
+            pageLoad();
         }
     }]
 
