@@ -230,10 +230,28 @@ header .menu li a {
 #gallary .white-bg ul li {
     justify-self: center;
     align-self: center;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+#gallary .white-bg ul li .hover-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+}
+
+#gallary .white-bg ul li:hover .hover-bg {
+    transform: translate(0, 100%);
 }
 
 #gallary .white-bg img {
-    width: 100%;
+    width: 400px;
     height: 300px;
     object-fit: cover;
     object-position: center;
