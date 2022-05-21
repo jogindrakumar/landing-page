@@ -181,31 +181,112 @@ const loadingEnter = () => {
     })
 }
 
+const gallaryEnter = () => {
+    let timeline = gsap.timeline();
+    timeline.fromTo(
+            ".white-bg", {
+                y: 50,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
+                duration: .8,
+                ease: 'power1.inOUt',
+            }
+        )
+        .fromTo(
+
+            '.white-bg ul li', {
+                y: 50,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
+                duration: .4,
+                stagger: .2,
+                ease: 'power1.inOUt'
+            })
+}
+gallaryEnter();
+
 barba.init({
 
     sync: true,
     transitions: [{
-        name: 'page-wipe',
-        async leave(data) {
-            const done = this.async();
-            console.log('leaving page animation');
-            loadingLeave();
-            await delay(1500);
-            done();
+            name: 'page-wipe',
+            async leave(data) {
+                const done = this.async();
+                console.log('leaving page animation');
+                loadingLeave();
+                await delay(1500);
+                done();
+            },
+            async enter(data) {
+
+                loadingEnter();
+                pageLoad();
+                console.log('entering page animation');
+
+
+            },
+            async once(data) {
+
+                pageLoad();
+            }
         },
-        async enter(data) {
+        {
+            name: 'gallary-transition',
+            from: {
+                namespace: ['home', 'about']
+            },
+            to: {
+                namespace: ['gallary']
+            },
+            async leave(data) {
+                const done = this.async();
+                console.log('leaving page animation');
+                loadingLeave();
+                await delay(1500);
+                done();
+            },
+            async enter(data) {
 
-            loadingEnter();
-            pageLoad();
-            console.log('entering page animation');
+                loadingEnter();
+                gallaryEnter();
+                console.log('entering page animation');
 
 
-        },
-        async once(data) {
+            },
+            async once(data) {
 
-            pageLoad();
+                pageLoad();
+            }
         }
-    }]
+    ],
+    views: [
+        //     {
+        //     namespace: 'index',
+        //     beforeLeave(data) {
+        //         // do something before leaving the current `index` namespace
+        //     }
+        // }, 
+        {
+            namespace: 'about',
+            afterEnter(data) {
+
+                loadingEnter();
+
+            },
+        },
+        {
+            namespace: 'gallary',
+            afterEnter(data) {
+
+                loadingEnter();
+                gallaryEnter();
+            }
+        }
+    ]
 
 })
 
