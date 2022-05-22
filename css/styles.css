@@ -76,10 +76,10 @@ header .menu li a {
     margin: 0 auto;
 }
 
-
-/* #home {
-    overflow: hidden;
-} */
+#home {
+    /* overflow: hidden; */
+    /* padding-bottom: 50px; */
+}
 
 #home .content-area {
     height: 100vh;
@@ -204,6 +204,56 @@ header .menu li a {
     transform: translate3d(0px, 300px, 0);
     border: 1px dashed white;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+#main-services {}
+
+#main-services .black-bg {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+#main-services .black-bg h2 {
+    font-size: 2rem;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#main-services .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: white;
+    min-width: 1200px;
+    width: 100%;
+    /* background-color: red; */
+}
+
+#main-services .services .service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#main-services .services .service .icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: red;
+    height: 100px;
+    width: 100px;
+}
+
+.test {
+    background: #1b1b1b;
+    height: 100vh;
 }
 
 #gallary .content-area {
